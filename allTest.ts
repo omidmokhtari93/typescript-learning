@@ -71,5 +71,31 @@ namespace Six {
     c({ value: 123 })
 }
 ////////////////////////////////////////////////////////////////////////////////////////////////////
+namespace Seven {
+    interface Action {
+        dispatch(action: string): string
+    }
+
+    type Reducer<S = any, A extends Action = any> = (state: S, action: A) => S
+
+    class dispachAction implements Action {
+        dispatch(action: string): string {
+            return action
+        }
+    }
+
+    class deliveryState {
+        deliveryMethod = {
+            selected: 0,
+            list: []
+        }
+    }
+
+    const testReducer: Reducer<deliveryState, dispachAction> = (state = new deliveryState(), action) => {
+        return state
+
+    }
+
+}
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////////////////
